@@ -1,7 +1,4 @@
 # sorting-of-numbers
-INC R0
-NO_SWAP: DJNZ R3,INNER
-DJNZ R4,OUTER
 END
 
 
