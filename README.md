@@ -21,16 +21,13 @@ To write and execute an Assembly Language Program for sorting data in Ascending 
 ---
 
 ## Program (Ascending order)
+<img width="724" height="712" alt="image" src="https://github.com/user-attachments/assets/cadbec08-9822-4c07-8bb6-3fcc4d34ef97" />
 
 ```asm
-
-
-
-
 ```
 ## OUTPUT(Ascending order)
 
-
+<img width="960" height="500" alt="image" src="https://github.com/user-attachments/assets/abf55b90-d364-4b01-b221-b94a2f5b9df2" />
 
 ---
 
@@ -44,21 +41,3 @@ To write and execute an Assembly Language Program for sorting data in Ascending 
 5. Again increment pointer and decrement **R7**.  
 6. Check if **R7 = 0**:  
    - If **No**, repeat the process from Step 2.  
-   - If **Yes**, stop the program.  
----
-## Program (Descending order)
-
-```asm
-
-
-
-
-```
-## OUTPUT(Descending order)
-
-
-
----
-## RESULT:
-Thus the sorting of given data was done using 8051 keil software.
-
