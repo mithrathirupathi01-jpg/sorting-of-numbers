@@ -22,35 +22,30 @@ To write and execute an Assembly Language Program for sorting data in Ascending 
 
 ## Program (Ascending order)
 
-```asm
+```
 ORG 0000H
-
-MOV R1,30H        ; Outer loop count = N
-DEC R1
-
-LOOP1: MOV R0,#40H
-       MOV R6,30H
-       DEC R6
-
-LOOP:  MOV A,@R0
-       INC R0
-       MOV B,@R0
-
-       CJNE A,B,NEXT
-
-NEXT:  JC DOWN        ; If A < B, no swap
-
-       MOV @R0,A      ; Swap if A > B
-       DEC R0
-       MOV @R0,B
-       INC R0
-
-DOWN:  DJNZ R6,LOOP
-       DJNZ R1,LOOP1
-
+MOV R4,#04H        ; Number of passes (N-1)
+OUTER: MOV R3,#04H ; Inner loop counter
+MOV R0,#50H        ; Array starting address
+INNER: MOV A,@R0
+MOV B,A
+INC R0
+CLR C
+SUBB A,@R0         ; Compare adjacent elements
+JC NO_SWAP         ; If A < @R0 (Carry), no swap
+; Exchange elements
+MOV A,@R0
+XCH A,B
+MOV @R0,A
+DEC R0
+MOV A,B
+XCH A,B
+MOV @R0,A
+INC R0
+NO_SWAP: DJNZ R3,INNER
+DJNZ R4,OUTER
 END
 
 
-
-
 ```
+## OUTPUT(Ascending order)
