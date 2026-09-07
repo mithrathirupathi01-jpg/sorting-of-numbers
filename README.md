@@ -21,23 +21,36 @@ To write and execute an Assembly Language Program for sorting data in Ascending 
 ---
 
 ## Program (Ascending order)
-<img width="724" height="712" alt="image" src="https://github.com/user-attachments/assets/cadbec08-9822-4c07-8bb6-3fcc4d34ef97" />
 
 ```asm
+ORG 0000H
+
+MOV R1,30H        ; Outer loop count = N
+DEC R1
+
+LOOP1: MOV R0,#40H
+       MOV R6,30H
+       DEC R6
+
+LOOP:  MOV A,@R0
+       INC R0
+       MOV B,@R0
+
+       CJNE A,B,NEXT
+
+NEXT:  JC DOWN        ; If A < B, no swap
+
+       MOV @R0,A      ; Swap if A > B
+       DEC R0
+       MOV @R0,B
+       INC R0
+
+DOWN:  DJNZ R6,LOOP
+       DJNZ R1,LOOP1
+
+END
+
+
+
+
 ```
-## OUTPUT(Ascending order)
-
-<img width="960" height="500" alt="image" src="https://github.com/user-attachments/assets/abf55b90-d364-4b01-b221-b94a2f5b9df2" />
-
----
-
-## Algorithm(Descending order)
-1. Initialize the register **R7** with count.  
-2. Get first two elements in two registers.  
-3. Compare the two elements of data:  
-   - If the value of **R0** register is high, then exchange **A** and **R0** data.  
-   - Else, increment pointer and decrement register **R7**.  
-4. Check if **R7 = 0**, then move the contents of **R0** and **A**.  
-5. Again increment pointer and decrement **R7**.  
-6. Check if **R7 = 0**:  
-   - If **No**, repeat the process from Step 2.  
